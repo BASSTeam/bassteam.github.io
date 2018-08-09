@@ -1,0 +1,14 @@
+{
+    "name": "github-pages-site",
+    "scripts": {
+        "start": "yarn build && serve -s docs",
+        "build": "node --experimental-modules build.mjs"
+    },
+    "engines": {
+        "node": ">=8.5.0"
+    },
+    "dependencies": {
+        "mkdir-recursive": "^0.4.0",
+        "serve": "^9.4.2"
+    }
+}
