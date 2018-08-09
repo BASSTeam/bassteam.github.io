@@ -58,7 +58,17 @@ const _fs = new (class FileSystem {
             })
         })
     }
+    /**
+     * Removes single file
+     * @param {String} file Path to the file
+     * @return {Promise<void>}
+     */
+    remove(file){
+        return new Promise((resolve, reject) => fs.unlink(file, err => {
+            if (err) reject(err); else resolve()
+        }))
+    }
 })();
-const {move, rename, copy, list, mkdir} = _fs
-export {move, rename, copy, list, mkdir};
+const {move, rename, copy, list, mkdir, remove} = _fs
+export {move, rename, copy, list, mkdir, remove};
 export default _fs;
