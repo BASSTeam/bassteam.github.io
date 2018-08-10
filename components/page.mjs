@@ -8,7 +8,7 @@ const attrs = Symbol('[[ElementAttributes]]'),
 
 class Element{
     constructor(name, reference){
-        if(name == 'script' && reference[content]) reference[content] == `(${reference[content]})()`;
+        if(name == 'script' && reference[content]) reference[content] = `(${reference[content]})()`;
         this[_] = {name, reference};
     }
     get src(){
