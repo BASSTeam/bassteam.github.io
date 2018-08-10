@@ -1,6 +1,7 @@
 import {list, copy, remove} from 'components/fs';
 import notFound from './src/404';
 import index from './src/index';
+import app from './src/app';
 (async () => {
     const sources = [
         // List that prevents deleting source files
@@ -20,5 +21,5 @@ import index from './src/index';
         if (sources.indexOf(file) == -1) flist.push(remove(file));
     });
     await Promise.all(flist); // wait until all the files have been removed
-    await Promise.all([notFound(), index()])
+    await Promise.all([notFound(), index(), app()])
 })()

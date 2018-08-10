@@ -6,9 +6,11 @@ const attrs = Symbol('[[ElementAttributes]]'),
         'meta',
     ];
 
+import uglify from 'uglify-es';
+
 class Element{
     constructor(name, reference){
-        if(name == 'script' && reference[content]) reference[content] = `(${reference[content]})()`;
+        if(name == 'script' && reference[content]) reference[content] = uglify.minify(`(${reference[content]})()`).code;
         this[_] = {name, reference};
     }
     get src(){

@@ -1,0 +1,1 @@
+(()=>{var o=function(o){var e=o.search.slice(1),t={};return e&&e.split("&").forEach(o=>{o=o.split("="),t[decodeURIComponent(o.shift())]=decodeURIComponent(o.join("="))}),t}(location);!function(o,e){history.pushState(null,null,o)}(o.routeTo||"/",delete o.routeTo)})();
