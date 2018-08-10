@@ -68,7 +68,20 @@ const _fs = new (class FileSystem {
             if (err) reject(err); else resolve()
         }))
     }
+    /**
+     * Writes contents to the file
+     * @param {String} content Text to write
+     * @param {String} file Path to the file
+     * @return {Promise<void>}
+     */
+    write(content, file){
+        return new Promise((resolve, reject) => {
+            fs.writeFile(file, content, 'utf8', err => {
+                if (err) reject(err); else resolve()
+            })
+        })
+    }
 })();
-const {move, rename, copy, list, mkdir, remove} = _fs
-export {move, rename, copy, list, mkdir, remove};
+const {move, rename, copy, list, mkdir, remove, write} = _fs
+export {move, rename, copy, list, mkdir, remove, write};
 export default _fs;

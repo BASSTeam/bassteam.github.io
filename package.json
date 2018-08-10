@@ -2,7 +2,8 @@
     "name": "github-pages-site",
     "scripts": {
         "start": "yarn build && serve",
-        "build": "node --experimental-modules build.mjs"
+        "build": "node --experimental-modules build.mjs",
+        "postinstall": "git checkout node_modules/components"
     },
     "engines": {
         "node": ">=8.5.0"

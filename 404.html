@@ -1,14 +1,5 @@
-<html>
-    <head>
-        <script>
-            (() => {
-                var a = document.createElement('a');
-                a.href = document.referrer;
-                location.href = `/?routeTo=${encodeURIComponent(a.pathname + a.search)}`
-            })()
-        </script>
-    </head>
-    <body>
-        Look to the console
-    </body>
-</html>
+<html><head></head><body>Look to the console<script id="router">() => {
+                    var a = document.createElement('a');
+                    a.href = document.referrer;
+                    location.href = `/?routeTo=${encodeURIComponent(a.pathname + a.search)}`
+                }</script></body></html>

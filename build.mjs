@@ -1,5 +1,6 @@
 import {list, copy, remove} from 'components/fs';
-
+import notFound from './src/404';
+import index from './src/index';
 (async () => {
     const sources = [
         // List that prevents deleting source files
@@ -14,12 +15,10 @@ import {list, copy, remove} from 'components/fs';
         'yarn.lock',
     ];
     // Cleaning first
+    var flist = [];
     (await list('.')).forEach(file => {
-        if (sources.indexOf(file) == -1) remove(file)
+        if (sources.indexOf(file) == -1) flist.push(remove(file));
     });
-    // Just for test, copy files without building
-    const src = `src`;
-    (await list(src)).forEach(file => {
-        copy(`${src}/${file}`, `${file}`)
-    });
+    await Promise.all(flist); // wait until all the files have been removed
+    await Promise.all([notFound(), index()])
 })()
