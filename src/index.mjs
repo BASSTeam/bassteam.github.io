@@ -1,6 +1,6 @@
 import Page, {attrs, childs, content, Element} from 'components/page';
 import {write} from 'components/fs';
-var src = (new Page({
+export default () => write((new Page({
     body: {
         [childs]: [
             new Element('script', {
@@ -12,5 +12,4 @@ var src = (new Page({
         ],
         [content]: 'Routing complete'
     }
-})).src;
-export default () => write(src, './index.html')
+})).src, './index.html')
