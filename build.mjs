@@ -1,4 +1,4 @@
-import {list, copy, remove} from 'components/fs';
+import {list, remove} from 'components/fs';
 import notFound from './src/404';
 import index from './src/index';
 import app from './src/app';
