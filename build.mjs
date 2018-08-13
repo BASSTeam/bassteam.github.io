@@ -1,7 +1,7 @@
 import {write, list, remove} from 'components/fs';
 import notFound from './src/404';
 import index from './src/index';
-import app from './src/app';
+import app from './src/app_builder';
 import staticjs from './src/static';
 import serviceWorker from './src/service-worker';
 import {createHash} from 'crypto';
