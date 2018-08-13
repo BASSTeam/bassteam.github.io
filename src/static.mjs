@@ -17,7 +17,7 @@ export default async () => {
         });
     (await list(folder)).forEach(file => {
         var file = file.split('.');
-        if(file.pop() == 'js'){
+        if(file.pop() == 'js' && file[file.length - 1] != 'min'){
             file = file.join('.');
             mainStack[file] = read(`${folder}/${file}.js`)
         }
