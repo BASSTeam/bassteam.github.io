@@ -5,9 +5,7 @@ export default () => write((new Page({
         [childs]: [
             new Element('script', {
                 [content]: (() => {
-                    var a = document.createElement('a');
-                    a.href = document.referrer;
-                    location.href = `/?routeTo=${encodeURIComponent(a.pathname + a.search)}`
+                    location.href = `/?routeTo=${encodeURIComponent(location.pathname + location.search)}`
                 }).toString(),
                 [attrs]: {
                     id: 'router'
