@@ -74,14 +74,26 @@ const _fs = new (class FileSystem {
      * @param {String} file Path to the file
      * @return {Promise<void>}
      */
-    write(content, file){
+    write(file, content){
         return new Promise((resolve, reject) => {
             fs.writeFile(file, content, 'utf8', err => {
                 if (err) reject(err); else resolve()
             })
         })
     }
+    /**
+     * Read contents from the file
+     * @param {String} file Path to the file
+     * @return {Promise<void>}
+     */
+    read(file){
+        return new Promise((resolve, reject) => {
+            fs.readFile(file, 'utf8', (err, data) => {
+                if (err) reject(err); else resolve(data)
+            })
+        })
+    }
 })();
-const {move, rename, copy, list, mkdir, remove, write} = _fs
-export {move, rename, copy, list, mkdir, remove, write};
+const {move, rename, copy, list, mkdir, remove, write, read} = _fs
+export {move, rename, copy, list, mkdir, remove, write, read};
 export default _fs;

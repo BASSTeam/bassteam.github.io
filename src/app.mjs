@@ -21,7 +21,7 @@ export default async () => {
         throw e
     }
     console.log('Done');
-    await write(_ + uglify.minify(`(${(async () => {
+    await write('./app.js', _ + uglify.minify(`(${(async () => {
 
         /******************************\
         |                              |
@@ -61,5 +61,5 @@ export default async () => {
             }
         }
         
-    }).toString()})()`).code, './app.js')
+    }).toString()})()`).code)
 }

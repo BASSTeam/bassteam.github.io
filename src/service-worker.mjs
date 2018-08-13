@@ -1,6 +1,6 @@
 import {write} from 'components/fs';
 import uglify from 'uglify-es';
-export default () => write(uglify.minify(`(${(() => {
+export default () => write('./sw.js', uglify.minify(`(${(() => {
     const cacheName = 'v1';
     self.addEventListener('install', event => {
         event.waitUntil(caches.open(cacheName).then(cache => cache.addAll([
@@ -25,7 +25,7 @@ export default () => write(uglify.minify(`(${(() => {
             }
         }));
     });      
-}).toString()})()`).code, './sw.js')
+}).toString()})()`).code)
 
 
 

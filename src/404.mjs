@@ -1,6 +1,6 @@
 import Page, {attrs, childs, content, Element} from 'components/page';
 import {write} from 'components/fs';
-export default () => write((new Page({
+export default () => write('./404.html', (new Page({
     body: {
         [childs]: [
             new Element('script', {
@@ -14,4 +14,4 @@ export default () => write((new Page({
         ],
         [content]: 'Look to the console'
     }
-})).src, './404.html')
+})).src)
