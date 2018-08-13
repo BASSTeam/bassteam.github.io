@@ -2,7 +2,6 @@ import {write} from 'components/fs';
 import uglify from 'uglify-es';
 import https from 'https';
 import app from './app'
-console.log(app)
 function download(url){
     return new Promise((resolve, reject) => {
         https.get(url, response => {
