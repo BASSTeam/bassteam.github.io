@@ -1,9 +1,9 @@
 import {write, list, remove} from 'components/fs';
-import notFound from './src/404';
-import index from './src/index';
-import app from './src/app_builder';
-import staticjs from './src/static';
-import serviceWorker from './src/service-worker';
+import notFound from 'containers/404.html';
+import index from 'containers/index.html';
+import app from 'containers/app.js';
+import staticjs from 'containers/static';
+import serviceWorker from 'containers/sw.js';
 import {createHash} from 'crypto';
 (async () => {
     const sources = [

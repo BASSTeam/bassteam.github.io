@@ -3,7 +3,7 @@
     "scripts": {
         "start": "yarn build && serve",
         "build": "node --experimental-modules build.mjs",
-        "postinstall": "git checkout node_modules/components"
+        "postinstall": "git checkout node_modules/components && git checkout node_modules/containers"
     },
     "engines": {
         "node": ">=8.5.0"
