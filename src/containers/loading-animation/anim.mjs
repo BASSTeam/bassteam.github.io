@@ -15,3 +15,44 @@ export default async () => {
         }
     })
 }
+
+var style = `
+body{
+    margin: 0;
+}
+#loading-anim, .outer {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.middle, #loading-anim > div {
+    display: table-cell;
+    vertical-align: middle;
+}
+#form, #loading-anim{
+    background-color: #daefff;
+}
+#form, #loading-anim > div > svg{
+    margin-left: auto;
+    margin-right: auto;
+}
+#form {
+    width: 800px;
+    padding: 20px;
+}
+textarea{
+    width: 800px;
+    resize: vertical;
+    height: 400px;
+}
+#loading-anim > div > svg{
+    width: 25%;
+    height: 25%;
+    display: block;
+}
+#loading-anim{
+    transition: all 0.5s linear;
+}`
+
+export {style}

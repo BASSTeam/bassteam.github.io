@@ -1,2 +1,39 @@
-<html><head></head><body><div id="loading-anim"><div><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" style="background: none;"><defs><filter id="gooey" x="-100%" y="-100%" width="300%" height="300%" color-interpolation-filters="sRGB"><feGaussianBlur in="SourceGraphic" stdDeviation="2.4000000000000004"></feGaussianBlur><feComponentTransfer result="cutoff"><feFuncA type="linear" slope="10" intercept="-5"></feFuncA></feComponentTransfer></filter></defs><g filter="url(#gooey)"><g transform="translate(50 50)"><g transform="rotate(358.5)"><circle cx="17" cy="0" r="3.64" fill="#1d3f72"><animate attributeName="r" keyTimes="0;0.5;1" values="3.5999999999999996;8.399999999999999;3.5999999999999996" dur="4s" repeatCount="indefinite" begin="-4s"></animate></circle><animateTransform attributeName="transform" type="rotate" keyTimes="0;1" values="0;360" dur="4s" repeatCount="indefinite" begin="0s"></animateTransform></g></g><g transform="translate(50 50)"><g transform="rotate(141)"><circle cx="17" cy="0" r="7.52" fill="#5699d2"><animate attributeName="r" keyTimes="0;0.5;1" values="3.5999999999999996;8.399999999999999;3.5999999999999996" dur="2s" repeatCount="indefinite" begin="-3.2s"></animate></circle><animateTransform attributeName="transform" type="rotate" keyTimes="0;1" values="0;360" dur="2s" repeatCount="indefinite" begin="-0.8s"></animateTransform></g></g><g transform="translate(50 50)"><g transform="rotate(67.5)"><circle cx="17" cy="0" r="5.64" fill="#d8ebf9"><animate attributeName="r" keyTimes="0;0.5;1" values="3.5999999999999996;8.399999999999999;3.5999999999999996" dur="1.3333333333333333s" repeatCount="indefinite" begin="-2.4s"></animate></circle><animateTransform attributeName="transform" type="rotate" keyTimes="0;1" values="0;360" dur="1.3333333333333333s" repeatCount="indefinite" begin="-1.6s"></animateTransform></g></g><g transform="translate(50 50)"><g transform="rotate(138)"><circle cx="17" cy="0" r="7.6" fill="#71c2cc"><animate attributeName="r" keyTimes="0;0.5;1" values="3.5999999999999996;8.399999999999999;3.5999999999999996" dur="1s" repeatCount="indefinite" begin="-1.6s"></animate></circle><animateTransform attributeName="transform" type="rotate" keyTimes="0;1" values="0;360" dur="1s" repeatCount="indefinite" begin="-2.4s"></animateTransform></g></g><g transform="translate(50 50)"><g transform="rotate(352.5)"><circle cx="17" cy="0" r="3.8" fill="#4996a2"><animate attributeName="r" keyTimes="0;0.5;1" values="3.5999999999999996;8.399999999999999;3.5999999999999996" dur="0.8s" repeatCount="indefinite" begin="-0.8s"></animate></circle><animateTransform attributeName="transform" type="rotate" keyTimes="0;1" values="0;360" dur="0.8s" repeatCount="indefinite" begin="-3.2s"></animateTransform></g></g></g></svg></div>
+<html><head></head><body><style>
+body{
+    margin: 0;
+}
+#loading-anim, .outer {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.middle, #loading-anim > div {
+    display: table-cell;
+    vertical-align: middle;
+}
+#form, #loading-anim{
+    background-color: #daefff;
+}
+#form, #loading-anim > div > svg{
+    margin-left: auto;
+    margin-right: auto;
+}
+#form {
+    width: 800px;
+    padding: 20px;
+}
+textarea{
+    width: 800px;
+    resize: vertical;
+    height: 400px;
+}
+#loading-anim > div > svg{
+    width: 25%;
+    height: 25%;
+    display: block;
+}
+#loading-anim{
+    transition: all 0.5s linear;
+}</style><div id="loading-anim"><div><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" style="background: none;"><defs><filter id="gooey" x="-100%" y="-100%" width="300%" height="300%" color-interpolation-filters="sRGB"><feGaussianBlur in="SourceGraphic" stdDeviation="2.4000000000000004"></feGaussianBlur><feComponentTransfer result="cutoff"><feFuncA type="linear" slope="10" intercept="-5"></feFuncA></feComponentTransfer></filter></defs><g filter="url(#gooey)"><g transform="translate(50 50)"><g transform="rotate(358.5)"><circle cx="17" cy="0" r="3.64" fill="#1d3f72"><animate attributeName="r" keyTimes="0;0.5;1" values="3.5999999999999996;8.399999999999999;3.5999999999999996" dur="4s" repeatCount="indefinite" begin="-4s"></animate></circle><animateTransform attributeName="transform" type="rotate" keyTimes="0;1" values="0;360" dur="4s" repeatCount="indefinite" begin="0s"></animateTransform></g></g><g transform="translate(50 50)"><g transform="rotate(141)"><circle cx="17" cy="0" r="7.52" fill="#5699d2"><animate attributeName="r" keyTimes="0;0.5;1" values="3.5999999999999996;8.399999999999999;3.5999999999999996" dur="2s" repeatCount="indefinite" begin="-3.2s"></animate></circle><animateTransform attributeName="transform" type="rotate" keyTimes="0;1" values="0;360" dur="2s" repeatCount="indefinite" begin="-0.8s"></animateTransform></g></g><g transform="translate(50 50)"><g transform="rotate(67.5)"><circle cx="17" cy="0" r="5.64" fill="#d8ebf9"><animate attributeName="r" keyTimes="0;0.5;1" values="3.5999999999999996;8.399999999999999;3.5999999999999996" dur="1.3333333333333333s" repeatCount="indefinite" begin="-2.4s"></animate></circle><animateTransform attributeName="transform" type="rotate" keyTimes="0;1" values="0;360" dur="1.3333333333333333s" repeatCount="indefinite" begin="-1.6s"></animateTransform></g></g><g transform="translate(50 50)"><g transform="rotate(138)"><circle cx="17" cy="0" r="7.6" fill="#71c2cc"><animate attributeName="r" keyTimes="0;0.5;1" values="3.5999999999999996;8.399999999999999;3.5999999999999996" dur="1s" repeatCount="indefinite" begin="-1.6s"></animate></circle><animateTransform attributeName="transform" type="rotate" keyTimes="0;1" values="0;360" dur="1s" repeatCount="indefinite" begin="-2.4s"></animateTransform></g></g><g transform="translate(50 50)"><g transform="rotate(352.5)"><circle cx="17" cy="0" r="3.8" fill="#4996a2"><animate attributeName="r" keyTimes="0;0.5;1" values="3.5999999999999996;8.399999999999999;3.5999999999999996" dur="0.8s" repeatCount="indefinite" begin="-0.8s"></animate></circle><animateTransform attributeName="transform" type="rotate" keyTimes="0;1" values="0;360" dur="0.8s" repeatCount="indefinite" begin="-3.2s"></animateTransform></g></g></g></svg></div>
 </div><div id="body"></div><script src="/app.js" async></script></body></html>
