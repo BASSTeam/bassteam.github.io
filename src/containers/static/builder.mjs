@@ -23,8 +23,14 @@ export default async () => {
         }
     });
     mainStack = await Promise.all(mainStack);
+    var res = ( _ => {
+        var res = '';
+        _.forEach(({name, value}) => res += JSON.stringify({name, value}));
+        return res
+    })(mainStack);
     mainStack.forEach(({name, value}, index) => {
         mainStack[index] = write(`${folder}/${name}.min.js`, uglify.minify(value).code)
     });
     await Promise.all(mainStack);
+    return res;
 }

@@ -22,5 +22,7 @@ export default async () => {
         throw e
     }
     console.log('Done');
-    await write('./app.js', _ + uglify.minify(`(${app.main.toString()})()`).code)
+    var __ = app.main.toString();
+    await write('./app.js', _ + uglify.minify(`(${__})()`).code);
+    return __;
 }
