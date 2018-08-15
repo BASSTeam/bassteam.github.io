@@ -12,7 +12,7 @@ class Element {
         if(this[_][content]) this[node].innerHTML = this[_][content];
         for(var i in (this[_][childs] || {})) this[node].appendChild(this[_][childs][i].node);
     }
-    set [node](value){}
+    //set [node](value){}
     get src(){
         return this[node].outerHTML
     }
