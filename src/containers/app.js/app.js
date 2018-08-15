@@ -26,7 +26,7 @@ exports.main /* For properly handling in some IDEs */ = async () => {
             };
 
         function getArgs(locationLike){
-            search = search || locationLike.search.slice(1), args = {};
+            var search = locationLike.search.slice(1), args = {};
             if (search){
                 search.split('&').forEach(arg => {
                     arg = arg.split('=');
