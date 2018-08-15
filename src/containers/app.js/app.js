@@ -15,10 +15,8 @@ exports.main /* For properly handling in some IDEs */ = async () => {
     new Thread(async () => {
         const [
                 router,
-                { Page, Element, ElementData, attrs, childs, content, node },
             ] = await Promise.all([
                 require('/router.js'),
-                require('/static/page.min.js'),
             ]),
             doc = {
                 body: document.getElementById('body'),
@@ -60,8 +58,8 @@ exports.main /* For properly handling in some IDEs */ = async () => {
             history.pushState(null, null, route);
             const {head, body} = (await router(route, args));
             console.log({head, body});
-            doc.head.innerHTML = head[node].innerHTML;
-            doc.body.innerHTML = body[node].innerHTML;
+            doc.head.innerHTML = head.node.innerHTML;
+            doc.body.innerHTML = body.node.innerHTML;
             doc.body.querySelectorAll('a').forEach(a => {
                 a.addEventListener('click', ev => {
                     ev.preventDefault();

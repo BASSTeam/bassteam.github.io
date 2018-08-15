@@ -2,8 +2,7 @@ const attrs = Symbol('[[ElementAttributes]]'),
     childs = Symbol('[[ChildrenElements]]'),
     content = Symbol('[[ElementContent]]'),
     _ = Symbol('[[ElementData]]'),
-    node = Symbol('[[Node]]'),
-    realNode = Symbol('[[RealNode]]');
+    realNode = Symbol('[[Node]]');
 class ElementData{}
 class Element {
     constructor(name, data){
@@ -13,8 +12,8 @@ class Element {
         if(this[_][content]) this[realNode].innerHTML = this[_][content];
         for(var i in (this[_][childs] || {})) this[realNode].appendChild(this[_][childs][i][realNode]);
     }
-    set [node](value){}
-    get [node](){
+    set node(value){}
+    get node(){
         return this[realNode]
     }
     get src(){
@@ -30,4 +29,4 @@ class Page{
         return this.head.src + this.body.src
     }
 }
-module.exports = {Page, Element, ElementData: _, attrs, childs, content, node};
+module.exports = {Page, Element, ElementData: _, attrs, childs, content};
