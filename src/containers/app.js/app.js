@@ -59,6 +59,7 @@ exports.main /* For properly handling in some IDEs */ = async () => {
             enableLoadingAnim();
             history.pushState(null, null, route);
             const {head, body} = (await router(route, args));
+            console.log({head, body});
             doc.head.innerHTML = head[node].innerHTML;
             doc.body.innerHTML = body[node].innerHTML;
             doc.body.querySelectorAll('a').forEach(a => {
