@@ -9,16 +9,16 @@ class Element {
     constructor(name, data){
         this[_] = Object.assign(new ElementData, data);
         this[realNode] = document.createElement(name);
-        for(var i in (this[_][attrs] || {})) this[node].setAttribute(i, this[_][attrs][i] || '');
-        if(this[_][content]) this[node].innerHTML = this[_][content];
-        for(var i in (this[_][childs] || {})) this[node].appendChild(this[_][childs][i][node]);
+        for(var i in (this[_][attrs] || {})) this[realNode].setAttribute(i, this[_][attrs][i] || '');
+        if(this[_][content]) this[realNode].innerHTML = this[_][content];
+        for(var i in (this[_][childs] || {})) this[realNode].appendChild(this[_][childs][i][realNode]);
     }
     set [node](value){}
     get [node](){
         return this[realNode]
     }
     get src(){
-        return this[node].outerHTML
+        return this[realNode].outerHTML
     }
 }
 class Page{
