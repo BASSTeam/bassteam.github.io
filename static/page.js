@@ -10,7 +10,7 @@ class Element {
         this[node] = document.createElement(name);
         for(var i in (this[_][attrs] || {})) this[node].setAttribute(i, this[_][attrs][i] || '');
         if(this[_][content]) this[node].innerHTML = this[_][content];
-        for(var i in (this[_][childs] || {})) this[node].appendChild(this[_][childs][i].node);
+        for(var i in (this[_][childs] || {})) this[node].appendChild(this[_][childs][i][node]);
     }
     //set [node](value){}
     get src(){
