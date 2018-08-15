@@ -1,4 +1,4 @@
-exports.page = async args => {
+module.exports = async args => {
     const {Page, Element, ElementData, attrs, childs, content, node} = await require('/static/page.min.js');
     return new Page({
         body: {

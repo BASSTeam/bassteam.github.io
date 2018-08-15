@@ -4,6 +4,7 @@ import index from 'containers/index.html';
 import app from 'containers/app.js';
 import staticjs from 'containers/static';
 import serviceWorker from 'containers/sw.js';
+import router from 'containers/router.js';
 import {createHash} from 'crypto';
 (async () => {
     const sources = [
@@ -31,7 +32,8 @@ import {createHash} from 'crypto';
                 index(),
                 app(),
                 serviceWorker(),
-                staticjs()
+                staticjs(),
+                router(),
             ])
         ).join('')
     ).digest("hex"))
