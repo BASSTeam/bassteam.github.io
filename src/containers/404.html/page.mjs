@@ -6,12 +6,15 @@ export default async () => {
         body: {
             [childs]: [
                 await loading(),
-                new Element('script', {
-                    [content]: (() => {
-                        location.href = `/?routeTo=${encodeURIComponent(location.pathname + location.search)}`
-                    }).toString(),
+                new Element('div', {
                     [attrs]: {
-                        id: 'router'
+                        id: 'body'
+                    }
+                }),
+                new Element('script', {
+                    [attrs]: {
+                        src: '/app.js',
+                        async: ''
                     }
                 }),
             ],

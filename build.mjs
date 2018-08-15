@@ -29,7 +29,7 @@ import {createHash} from 'crypto';
         (
             await Promise.all([
                 notFound(),
-                index(),
+                //index(),
                 app(),
                 //serviceWorker(),
                 staticjs(),
