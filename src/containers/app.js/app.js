@@ -6,6 +6,9 @@ exports.main /* For properly handling in some IDEs */ = async () => {
     |                              |
     \******************************/
 
+    var router = require('/router.js'), // <-- DONT AWAIT FOR RESOLVING SO NEED TO AWAIT LATER
+        html = document.head.parentNode;
+
     function getArgs(locationLike){
         var search = locationLike.search.slice(1), args = {};
         if (search){
@@ -18,6 +21,7 @@ exports.main /* For properly handling in some IDEs */ = async () => {
     }
     async function routeTo(route, args){
         history.pushState(null, null, route);
+        html.innerHTML = (await (await router)(route, args)).src;
     }
 
     var args = getArgs(location);
