@@ -6,6 +6,3 @@ export default async () => {
     await write('./sw.js', uglify.minify(`(${_})()`).code);
     return _
 }
-
-
-
