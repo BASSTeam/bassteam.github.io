@@ -1,3 +1,3 @@
 import page from './page';
 import {write} from 'components/fs';
-export default () => write('./404.html', page.src)
+export default async () => await write('./404.html', (await page()).src)
