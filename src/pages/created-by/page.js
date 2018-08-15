@@ -1,6 +1,5 @@
 module.exports = async args => {
     const {Page, Element, ElementData, attrs, childs, content, node} = await require('/static/page.min.js');
-    const br = () => new Element('br')
     return new Page({
         body: {
             [childs]: [
@@ -10,7 +9,7 @@ module.exports = async args => {
                         id: 'main'
                     }
                 }),
-                br(),
+                new Element('br'),
                 new Element('a', {
                     [content]: 'Перейти на главную',
                     [attrs]: {

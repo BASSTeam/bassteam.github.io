@@ -9,7 +9,7 @@ module.exports = async args => {
                         id: 'main'
                     }
                 }),
-                br(),
+                new Element('br'),
                 new Element('a', {
                     [content]: 'Перейти на главную',
                     [attrs]: {

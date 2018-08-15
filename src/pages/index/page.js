@@ -9,21 +9,21 @@ module.exports = async args => {
                         id: 'main'
                     }
                 }),
-                br(),
+                new Element('br'),
                 new Element('a', {
                     [content]: 'Перейти на createdBy',
                     [attrs]: {
                         href: '/createdBy'
                     }
                 }),
-                br(),
+                new Element('br'),
                 new Element('a', {
                     [content]: 'Перейти на 404',
                     [attrs]: {
                         href: '/2131231321313'
                     }
                 }),
-                br(),
+                new Element('br'),
                 new Element('a', {
                     [content]: 'Перейти на главную',
                     [attrs]: {
