@@ -1,1 +1,0 @@
-self.addEventListener("install",e=>{e.waitUntil(caches.open("v1").then(e=>e.addAll(["/404.html","/app.js","/index.html"])))}),self.addEventListener("fetch",e=>{e.respondWith(caches.match(e.request).then(t=>void 0!==t?t:fetch(e.request).then(t=>{let n=t.clone();return caches.open("v1").then(function(t){t.put(e.request,n)}),t}).catch(()=>caches.match("/index.html"))))});

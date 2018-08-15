@@ -31,7 +31,7 @@ import {createHash} from 'crypto';
                 notFound(),
                 index(),
                 app(),
-                serviceWorker(),
+                //serviceWorker(),
                 staticjs(),
                 router(),
             ])
