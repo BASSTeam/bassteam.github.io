@@ -1,6 +1,5 @@
 import {write, list, remove} from 'components/fs';
 import notFound from 'containers/404.html';
-import index from 'containers/index.html';
 import app from 'containers/app.js';
 import staticjs from 'containers/static';
 import serviceWorker from 'containers/sw.js';
@@ -29,7 +28,6 @@ import {createHash} from 'crypto';
         (
             await Promise.all([
                 notFound(),
-                //index(),
                 app(),
                 //serviceWorker(),
                 staticjs(),
