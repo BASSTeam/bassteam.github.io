@@ -26,7 +26,7 @@ exports.main /* For properly handling in some IDEs */ = async () => {
 
     var args = getArgs(location);
     routeTo(args.routeTo || '/', (delete args.routeTo, args));
-
+    /*
     if ('serviceWorker' in navigator){
         try{
             let reg = await navigator.serviceWorker.register('/sw.js');
@@ -41,4 +41,5 @@ exports.main /* For properly handling in some IDEs */ = async () => {
             console.log(`Registration failed with ${e}`)
         }
     }
+    */
 }
