@@ -29,4 +29,7 @@ firebase.initializeApp({
 });
 eval(storeSrc);
 module.exports = firebase.firestore();
+module.exports.settings({
+    timestampsInSnapshots: true
+});
 delete window.firebase;
