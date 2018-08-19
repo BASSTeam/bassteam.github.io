@@ -9,13 +9,15 @@ function httpGet(url){
         xhr.send()
     })
 }
+var [appSrc, storeSrc] = await Promise.all([
+    httpGet(__dirname + '/app.js'),
+    httpGet(__dirname + '/firestore.js'),
+]);
 var firebase;
-await(async () => {
+(() => {
     var module = {exports:{}}, exports = new Proxy(module.exports, {});
-    await(async () => {
-        eval(await httpGet('app.js'));
-    })();
+    eval(appSrc);
     firebase = module.exports;
 })();
-eval(await httpGet('firestore.js'));
+eval(storeSrc);
 module.exports = firebase
