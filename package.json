@@ -3,7 +3,7 @@
     "scripts": {
         "start": "yarn build && serve",
         "build": "node --experimental-modules build.mjs",
-        "postinstall": "node -e 'const {spawn} = require(\"child_process\"); (require(\"./package.json\").noEdit || []).forEach(ne => spawn(\"git\", [\"checkout\", ne]))'"
+        "postinstall": "node -e 'const {spawnSync:spawn} = require(\"child_process\"); (require(\"./package.json\").noEdit || []).forEach(ne => spawn(\"git\", [\"checkout\", ne]))'"
     },
     "engines": {
         "node": ">=8.5.0"
