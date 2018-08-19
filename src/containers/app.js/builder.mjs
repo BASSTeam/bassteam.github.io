@@ -16,7 +16,7 @@ function download(url){
 export default async () => {
     process.stdout.write('Downloading latest module system... ');
     try{
-        var _ = await download('https://raw.githubusercontent.com/KaMeHb-UA/require/master/modern_pluggable.js');
+        var _ = await download('https://raw.githubusercontent.com/KaMeHb-UA/require/master/next.min.js');
     } catch(e){
         console.log('Cannot download. Aborting...');
         throw e
