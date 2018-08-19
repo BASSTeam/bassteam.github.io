@@ -19,5 +19,14 @@ var firebase;
     eval(appSrc);
     firebase = module.exports;
 })();
+firebase.initializeApp({
+    apiKey: "AIzaSyACoEdBhw3bgStudU9wmL0FPTzfhx8cFqg",
+    authDomain: "bassteam-github-io.firebaseapp.com",
+    databaseURL: "https://bassteam-github-io.firebaseio.com",
+    projectId: "bassteam-github-io",
+    storageBucket: "bassteam-github-io.appspot.com",
+    messagingSenderId: "736958174627"
+});
 eval(storeSrc);
-module.exports = firebase
+module.exports = firebase.firestore();
+delete window.firebase;
