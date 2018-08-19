@@ -24,15 +24,11 @@ import {createHash} from 'crypto';
         if (sources.indexOf(file) == -1) flist.push(remove(file));
     });
     await Promise.all(flist); // wait until all the files have been removed
-    await write('.buildhash', createHash('md5').update(
-        (
-            await Promise.all([
-                notFound(),
-                app(),
-                //serviceWorker(),
-                staticjs(),
-                router(),
-            ])
-        ).join('')
-    ).digest("hex"))
+    await Promise.all([
+        notFound(),
+        app(),
+        //serviceWorker(),
+        staticjs(),
+        router(),
+    ])
 })()
