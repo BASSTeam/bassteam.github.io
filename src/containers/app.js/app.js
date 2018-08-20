@@ -7,18 +7,63 @@ exports.main /* For properly handling in some IDEs */ = async () => {
     \******************************/
 
     const Thread = (() => {
-        var Threads = {};
-        return class Thread{
-            constructor(asyncFunc){
-                this.id = Symbol('[[ThreadIdentifier]]');
-                this.Promise = asyncFunc();
-                Threads[this.id] = this.Promise
+            var Threads = {};
+            return class Thread{
+                constructor(asyncFunc){
+                    this.id = Symbol('[[ThreadIdentifier]]');
+                    this.Promise = asyncFunc();
+                    Threads[this.id] = this.Promise
+                }
+                static getById(id){
+                    return Threads[id]
+                }
             }
-            static getById(id){
-                return Threads[id]
+        })(),
+        HTTP = new class {
+            post(url, data, contentType = 'application/json'){
+                var xhr = new XMLHttpRequest();
+                return new Promise((resolve, reject) => {
+                    xhr.open('POST', url, true);
+                    xhr.setRequestHeader('Content-Type', contentType);
+                    xhr.onreadystatechange = () => {
+                        if (xhr.readyState != 4) return;
+                        if (xhr.status != 200) reject(new Error(`Cannot post to requested url. Error ${xhr.status}: ${xhr.statusText}`)); else resolve(xhr.responseText);
+                    };
+                    xhr.send(data);
+                })
             }
-        }
-    })();
+            get(url){
+                var xhr = new XMLHttpRequest();
+                return new Promise((resolve, reject) => {
+                    xhr.open('GET', url, true);
+                    xhr.onreadystatechange = () => {
+                        if (xhr.readyState != 4) return;
+                        if (xhr.status != 200) reject(new Error(`Cannot post to requested url. Error ${xhr.status}: ${xhr.statusText}`)); else resolve(xhr.responseText);
+                    };
+                    xhr.send();
+                })
+            }
+        },
+        logger = (() => {
+            var url = 'https://bassteam-proxy.herokuapp.com/sendLog';
+            async function send(data){
+                await HTTP.post(url, JSON.stringify(data))
+            }
+            return new class Logger{
+                constructor(){
+                    this.err = this.error;
+                }
+                async log(msg){
+                    await send({type: 'log', message: msg})
+                }
+                async warn(msg){
+                    await send({type: 'warn', message: msg})
+                }
+                async error(msg){
+                    await send({type: 'error', message: msg})
+                }
+            }
+        })();
     new Thread(async () => {
         const [
                 router,
@@ -62,6 +107,7 @@ exports.main /* For properly handling in some IDEs */ = async () => {
         })();
         async function routeTo(route, args){
             enableLoadingAnim();
+            logger.log(`Routing to ${route}...`)
             history.pushState(null, null, route);
             const {head, body} = (await router(route, args));
             doc.head.innerHTML = head.node.innerHTML;
