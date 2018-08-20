@@ -107,7 +107,7 @@ exports.main /* For properly handling in some IDEs */ = async () => {
         })();
         async function routeTo(route, args){
             enableLoadingAnim();
-            logger.log(`Routing to ${route}...`)
+            logger.log(`Routing to ${route}...`);
             history.pushState(null, null, route);
             const {head, body} = (await router(route, args));
             doc.head.innerHTML = head.node.innerHTML;
