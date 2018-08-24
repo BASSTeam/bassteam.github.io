@@ -66,6 +66,30 @@ exports.main /* For properly handling in some IDEs */ = async () => {
         })();
     new Thread(async () => {
         const {router, doc} = await (
+            /**
+             * @typedef Element
+             * @property {HTMLElement} node
+             * @property {String} src
+             */
+            /**
+             * @typedef Page
+             * @property {Element} head
+             * @property {Element} body
+             */
+            /**
+             * @callback Router
+             * @param {String} router
+             * @param {any} args
+             * @return {Promise<Page>}
+             */
+            /**
+             * @typedef Res
+             * @property {Router} router
+             * @property {{body: HTMLDivElement, head: HTMLHeadElement}} doc
+             */
+            /**
+             * @return {Promise<Res>}
+             */
             async () => {
                 const [
                         router,
