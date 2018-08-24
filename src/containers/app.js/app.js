@@ -65,16 +65,25 @@ exports.main /* For properly handling in some IDEs */ = async () => {
             }
         })();
     new Thread(async () => {
-        const [
-                router,
-            ] = await Promise.all([
-                require('/router.js'),
-            ]),
-            doc = {
-                body: document.getElementById('body'),
-                head: document.head,
-            };
-
+        const {router, doc} = await (
+            async () => {
+                const [
+                        router,
+                        page
+                    ] = await Promise.all([
+                        require('/router.js'),
+                        require('/static/page.min.js'),
+                    ]),
+                    doc = {
+                        body: document.getElementById('body'),
+                        head: document.head,
+                    };
+                window.Page = page.Page;
+                delete page.Page;
+                for(var i in page) window.Page[i] = page[i];
+                return {router, doc}
+            }
+        )();
         function getArgs(locationLike){
             var search = locationLike.search.slice(1), args = {};
             if (search){

@@ -17,6 +17,7 @@ import {createHash} from 'crypto';
         'build.mjs',
         'package.json',
         'yarn.lock',
+        '_README.md',
     ];
     // Cleaning first
     var flist = [];

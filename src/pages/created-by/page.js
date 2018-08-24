@@ -1,5 +1,5 @@
 module.exports = async args => {
-    const {Page, Element, ElementData, attrs, childs, content, node} = await require('/static/page.min.js');
+    const {Element, ElementData, attrs, childs, content, node} = Page;
     return new Page({
         body: {
             [childs]: [
@@ -15,7 +15,7 @@ module.exports = async args => {
                     [attrs]: {
                         href: '/'
                     }
-                })
+                }),
             ]
         }
     })
