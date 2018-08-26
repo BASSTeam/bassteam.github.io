@@ -34,6 +34,9 @@ class Page{
             for(var i = defaultHead.length - 1; i > 0; i--) head[childs].unshift(elem);
             return head
         })(head || {}));
+        console.log({
+            head: this.head,
+        })
         this.body = new Element('body', body || {});
     }
     get src(){
