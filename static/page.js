@@ -41,7 +41,7 @@ class Page{
     constructor({head, body}){
         this.head = new Element('head', (head => {
             head[childs] = head[childs] || [];
-            for(var i = defaultHead.length - 1; i > 0; i--) head[childs].unshift(elem);
+            for(var i = defaultHead.length - 1; i > 0; i--) head[childs].unshift(defaultHead[i]);
             return head
         })(head || {}));
         console.log({
