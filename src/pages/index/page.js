@@ -1,6 +1,13 @@
 module.exports = async args => {
     const {Element, ElementData, attrs, childs, content, node} = Page;
     return new Page({
+        head: {
+            [childs]: [
+                new Element('title', {
+                    [content]: 'Material Design Lite'
+                }),
+            ]
+        },
         body: {
             [childs]: [
                 new Element('div', {

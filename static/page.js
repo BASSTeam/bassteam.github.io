@@ -22,7 +22,16 @@ class Element {
 }
 class Page{
     constructor({head, body}){
-        this.head = new Element('head', head || {});
+        this.head = new Element('head', Object.assign({
+            // default head
+            [childs]: [
+                new Element('meta', {
+                    [attrs]: {
+                        charset: 'utf-8'
+                    }
+                }),
+            ]
+        }, head || {}));
         this.body = new Element('body', body || {});
     }
     get src(){

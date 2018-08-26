@@ -145,10 +145,13 @@ exports.main /* For properly handling in some IDEs */ = async () => {
             const {head, body} = (await router(route, args));
             doc.head.innerHTML = head.node.innerHTML;
             doc.body.innerHTML = body.node.innerHTML;
-            doc.body.querySelectorAll('a').forEach(a => {
-                a.addEventListener('click', ev => {
+
+            doc.body.querySelectorAll('[__routeable="true"]').forEach(el => {
+                el.addEventListener('click', ev => {
                     ev.preventDefault();
-                    routeTo(ev.target.pathname, getArgs(ev.target)).then(disableLoadingAnim)
+                    var link = el.querySelector('a');
+                    if(!link || !link.getAttribute('href')) return;
+                    routeTo(link.pathname, getArgs(link)).then(disableLoadingAnim)
                 })
             })
         }
