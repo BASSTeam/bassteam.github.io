@@ -4,7 +4,6 @@ import app from 'containers/app.js';
 import staticjs from 'containers/static';
 import serviceWorker from 'containers/sw.js';
 import router from 'containers/router.js';
-import {createHash} from 'crypto';
 (async () => {
     const sources = [
         // List that prevents deleting source files
