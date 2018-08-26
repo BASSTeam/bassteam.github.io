@@ -26,6 +26,16 @@ const defaultHead = [
             charset: 'utf-8'
         }
     }),
+    new Element('meta', {
+        [attrs]: {
+            charset: 'utf-8'
+        }
+    }),
+    new Element('meta', {
+        [attrs]: {
+            charset: 'utf-8'
+        }
+    }),
 ];
 class Page{
     constructor({head, body}){
