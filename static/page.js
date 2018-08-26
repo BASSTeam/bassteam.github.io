@@ -20,18 +20,20 @@ class Element {
         return this[realNode].outerHTML
     }
 }
+const defaultHead = [
+    new Element('meta', {
+        [attrs]: {
+            charset: 'utf-8'
+        }
+    }),
+];
 class Page{
     constructor({head, body}){
-        this.head = new Element('head', Object.assign({
-            // default head
-            [childs]: [
-                new Element('meta', {
-                    [attrs]: {
-                        charset: 'utf-8'
-                    }
-                }),
-            ]
-        }, head || {}));
+        this.head = new Element('head', (head => {
+            head[childs] = head[childs] || [];
+            for(var i = defaultHead.length - 1; i > 0; i--) head[childs].unshift(elem);
+            return head
+        })(head || {}));
         this.body = new Element('body', body || {});
     }
     get src(){
