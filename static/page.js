@@ -4,50 +4,52 @@ const attrs = Symbol('[[ElementAttributes]]'),
     _ = Symbol('[[ElementData]]'),
     realNode = Symbol('[[Node]]');
 class ElementData{}
-class Element {
-    constructor(name, data){
-        this[_] = Object.assign(new ElementData, data);
-        this[realNode] = document.createElement(name);
-        for(var i in (this[_][attrs] || {})) this[realNode].setAttribute(i, this[_][attrs][i] || '');
-        if(this[_][content]) this[realNode].innerHTML = this[_][content];
-        for(var i in (this[_][childs] || {})) this[realNode].appendChild(this[_][childs][i][realNode]);
-    }
-    set node(value){}
-    get node(){
-        return this[realNode]
-    }
-    get src(){
-        return this[realNode].outerHTML
-    }
-}
-const defaultHead = [
-    new Element('meta', {
-        [attrs]: {
-            charset: 'utf-8'
+const Element = (defaults => {
+    return class Element {
+        constructor(name, data){
+            this[_] = Object.assign(new ElementData, data);
+            this[realNode] = document.createElement(name);
+            for(var i in (this[_][attrs] || {})) this[realNode].setAttribute(i, this[_][attrs][i] || '');
+            if(this[_][content]) this[realNode].innerHTML = this[_][content];
+            this[_][childs] = this[_][childs] || [];
+            if(defaults[name]) for(var i = defaults[name].length - 1; i >= 0; i--) this[_][childs].unshift(defaults[name][i]);
+            this[_][childs].forEach(element => this[realNode].appendChild(element[realNode]))
         }
-    }),
-    new Element('meta', {
-        [attrs]: {
-            charset: 'utf-8'
+        set node(value){}
+        get node(){
+            return this[realNode]
         }
-    }),
-    new Element('meta', {
-        [attrs]: {
-            charset: 'utf-8'
+        get src(){
+            return this[realNode].outerHTML
         }
-    }),
-];
+    }
+})({
+    // defaults
+    head: [
+        new Element('meta', {
+            [attrs]: {
+                charset: 'utf-8'
+            }
+        }),
+    ],
+    body: [
+        //
+    ]
+}); 
+const prependChilds = (defaults => {
+    return element => {
+        var targetNode = element[realNode].tagName.toLowerCase();
+        if(defaults[targetNode]){
+            element[childs] = element[childs] || [];
+            
+        }
+        return element
+    }
+})();
 class Page{
     constructor({head, body}){
-        this.head = new Element('head', (head => {
-            head[childs] = head[childs] || [];
-            for(var i = defaultHead.length - 1; i > 0; i--) head[childs].unshift(defaultHead[i]);
-            return head
-        })(head || {}));
-        console.log({
-            head: this.head,
-        })
-        this.body = new Element('body', body || {});
+        this.head = prependChilds(new Element('head', head || {}));
+        this.body = prependChilds(new Element('body', body || {}));
     }
     get src(){
         return this.head.src + this.body.src

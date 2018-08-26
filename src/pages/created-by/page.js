@@ -1,5 +1,5 @@
 module.exports = async args => {
-    const {Element, ElementData, attrs, childs, content, node} = Page;
+    const {Element, ElementData, attrs, childs, content} = Page;
     return new Page({
         body: {
             [childs]: [
