@@ -37,21 +37,11 @@ const Element = (() => {
         ]
     }
     return Element
-})(); 
-const prependChilds = (defaults => {
-    return element => {
-        var targetNode = element[realNode].tagName.toLowerCase();
-        if(defaults[targetNode]){
-            element[childs] = element[childs] || [];
-            
-        }
-        return element
-    }
 })();
 class Page{
     constructor({head, body}){
-        this.head = prependChilds(new Element('head', head || {}));
-        this.body = prependChilds(new Element('body', body || {}));
+        this.head = new Element('head', head || {});
+        this.body = new Element('body', body || {});
     }
     get src(){
         return this.head.src + this.body.src
