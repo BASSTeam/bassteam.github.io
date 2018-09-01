@@ -1,5 +1,5 @@
 import {write} from 'components/fs';
-import uglify from 'uglify-es';
+import uglify from 'components/uglify-wrapper';
 import {main} from './sw';
 export default async () => {
     var _ = main.toString()

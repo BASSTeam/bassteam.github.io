@@ -1,8 +1,8 @@
 import {attrs, childs, content, Element} from 'components/page';
-import {gunzip} from 'zlib';
+import zlib from 'zlib';
 function unpack(b64data){
     return new Promise((resolve, reject) => {
-        gunzip(Buffer.from(b64data, 'base64'), (err, buf) => {
+        zlib.gunzip(Buffer.from(b64data, 'base64'), (err, buf) => {
             if(err) reject(err); else resolve(buf.toString())
         })
     })

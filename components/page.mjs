@@ -6,7 +6,7 @@ const attrs = Symbol('[[ElementAttributes]]'),
         'meta',
     ];
 
-import uglify from 'uglify-es';
+import uglify from 'components/uglify-wrapper';
 
 class Element{
     constructor(name, reference){

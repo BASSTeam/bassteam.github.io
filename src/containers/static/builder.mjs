@@ -1,5 +1,5 @@
 import {write, read, list} from 'components/fs';
-import uglify from 'uglify-es';
+import uglify from 'components/uglify-wrapper';
 export default async () => {
     var folder = 'static',
         mainStack = new Proxy([], {

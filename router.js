@@ -1,1 +1,89 @@
-var routes=(()=>{var e=async e=>{const{Element:n,ElementData:t,attrs:a,childs:r,content:d}=Page;return new Page({body:{[r]:[new n("div",{[d]:"Not Found",[a]:{id:"main"}}),new n("br"),new n("a",{[d]:"Перейти на главную",[a]:{href:"/"}})]}})};return new Proxy({"/":async e=>{const{Element:n,ElementData:t,attrs:a,childs:r,content:d}=Page;return new Page({head:{[r]:[new n("title",{[d]:"Material Design Lite"})]},body:{[r]:[new n("div",{[d]:"Main page",[a]:{id:"main"}}),new n("br"),new n("a",{[d]:"Перейти на createdBy",[a]:{href:"/createdBy"}}),new n("br"),new n("a",{[d]:"Перейти на 404",[a]:{href:"/2131231321313"}}),new n("br"),new n("a",{[d]:"Перейти на главную",[a]:{href:"/"}})]}})},"/createdBy":async e=>{const{Element:n,ElementData:t,attrs:a,childs:r,content:d}=Page;return new Page({body:{[r]:[new n("div",{[d]:"Created by KaMeHb-UA",[a]:{id:"main"}}),new n("br"),new n("a",{[d]:"Перейти на главную",[a]:{href:"/"}})]}})}},{get:(n,t)=>t in n?n[t]:e})})();module.exports=((e,n)=>routes[e](n));
+var routes = (()=>{var notFound = async args => {
+    const {Element, ElementData, attrs, childs, content} = Page;
+    return new Page({
+        body: {
+            [childs]: [
+                new Element('div', {
+                    [content]: 'Not Found',
+                    [attrs]: {
+                        id: 'main'
+                    }
+                }),
+                new Element('br'),
+                new Element('a', {
+                    [content]: 'Перейти на главную',
+                    [attrs]: {
+                        href: '/'
+                    }
+                })
+            ]
+        }
+    })
+}; return new Proxy({"/": async args => {
+    const {Element, ElementData, attrs, childs, content} = Page;
+    return new Page({
+        head: {
+            [childs]: [
+                new Element('title', {
+                    [content]: 'Material Design Lite'
+                }),
+            ]
+        },
+        body: {
+            [childs]: [
+                new Element('div', {
+                    [content]: 'Main page',
+                    [attrs]: {
+                        id: 'main'
+                    }
+                }),
+                new Element('br'),
+                new Element('a', {
+                    [content]: 'Перейти на createdBy',
+                    [attrs]: {
+                        href: '/createdBy'
+                    }
+                }),
+                new Element('br'),
+                new Element('a', {
+                    [content]: 'Перейти на 404',
+                    [attrs]: {
+                        href: '/2131231321313'
+                    }
+                }),
+                new Element('br'),
+                new Element('a', {
+                    [content]: 'Перейти на главную',
+                    [attrs]: {
+                        href: '/'
+                    }
+                })
+            ]
+        }
+    })
+},"/createdBy": async args => {
+    const {Element, ElementData, attrs, childs, content} = Page;
+    return new Page({
+        body: {
+            [childs]: [
+                new Element('div', {
+                    [content]: 'Created by KaMeHb-UA',
+                    [attrs]: {
+                        id: 'main'
+                    }
+                }),
+                new Element('br'),
+                new Element('a', {
+                    [content]: 'Перейти на главную',
+                    [attrs]: {
+                        href: '/'
+                    }
+                }),
+            ]
+        }
+    })
+}}, {
+    get(target, name){
+        if(name in target) return target[name]; else return notFound
+    }
+})})(); module.exports=(path, args)=>{return routes[path](args)}
